@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Sopa delletres</string>
+    <string name="jugar">Jugar</string>
+    <string name="benvingut">Benvingut!</string>
 </resources>

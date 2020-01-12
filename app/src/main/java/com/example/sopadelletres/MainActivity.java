@@ -48,8 +48,15 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        abrirInfoJoc();
-        return super.onOptionsItemSelected(item);
+        switch (item.getItemId()) {
+            case R.id.item1:
+                abrirInfoJoc();
+                return true;
+            case R.id.item2:
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     public void abrirInfoJoc() {
