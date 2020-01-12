@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -29,7 +30,12 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        //aqui falta poner para que vaya al webview
+        abrirInfoJoc();
         return super.onOptionsItemSelected(item);
+    }
+
+    public void abrirInfoJoc(){
+        Intent intent = new Intent(this, InfoJoc.class);
+        startActivity(intent);
     }
 }
