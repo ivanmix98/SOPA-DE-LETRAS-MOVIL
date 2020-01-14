@@ -15,7 +15,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextClock;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -183,6 +186,8 @@ public class Joc extends AppCompatActivity implements View.OnClickListener {
 
                 TextView casilla = new TextView(this);
 
+
+
                 casilla.setPadding(10, 10, 10, 10);
                 casilla.setLayoutParams(casillaParams);
                 casilla.setGravity(View.TEXT_ALIGNMENT_CENTER);
@@ -191,6 +196,7 @@ public class Joc extends AppCompatActivity implements View.OnClickListener {
 
                 if (arrayTablero[i][j] != null) {
                     casilla.setText(arrayTablero[i][j].toString());
+                    //System.out.println(casilla.getText().toString());
                 }
                 div.addView(casilla);
                 div.setId(z);
@@ -205,7 +211,7 @@ public class Joc extends AppCompatActivity implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         LinearLayout casilla = findViewById(view.getId());
-        System.out.println(view.getId());
+
 
 
         //para saber si la casilla está seleccionada o no
@@ -221,6 +227,8 @@ public class Joc extends AppCompatActivity implements View.OnClickListener {
         }
         if(color == Color.TRANSPARENT){
             casilla.setBackgroundColor(Color.RED);
+            System.out.println(view.getId());
+
         }
 
 
