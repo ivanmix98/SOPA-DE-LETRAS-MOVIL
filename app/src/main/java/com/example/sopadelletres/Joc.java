@@ -12,9 +12,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextClock;
 import android.widget.TextView;
 
@@ -37,7 +39,7 @@ public class Joc extends AppCompatActivity implements View.OnClickListener {
 
     Character[] ABC = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 
-
+    private ListView lvC;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +51,15 @@ public class Joc extends AppCompatActivity implements View.OnClickListener {
         this.rellenarArrayTablero();
 
         this.crearTablero();
+
+
+        lvC = (ListView) findViewById(R.id.listaContactos);
+        ArrayAdapter<String> arrayA = new ArrayAdapter<String>(
+                this,
+                android.R.layout.simple_list_item_1,
+                palabras );
+
+        lvC.setAdapter(arrayA);
     }
 
     public void rellenarArrayTablero() {
