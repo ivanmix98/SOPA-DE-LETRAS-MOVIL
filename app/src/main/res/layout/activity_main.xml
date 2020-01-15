@@ -13,10 +13,10 @@
 
     <ListView
         android:id="@+id/llista"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="1dp" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"/>
+
 
     <TextView
         android:id="@+id/text1"
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="Benvingut!"
+        android:text="@string/benvingut"
         android:textSize="24sp" />
 
     <Button
@@ -34,7 +34,7 @@
         android:layout_below="@+id/text1"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="Jugar" />
+        android:text="@string/jugar" />
 
 
 

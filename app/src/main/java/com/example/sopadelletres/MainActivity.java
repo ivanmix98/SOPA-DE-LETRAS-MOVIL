@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
             Cursor c = baseDades.rawQuery("SELECT data, puntuacio"
                             + " FROM " + TAULA
-                            + " WHERE puntuacio > 10 LIMIT 5;",
+                            + " WHERE puntuacio > 1 LIMIT 5;",
                     null);
 
 
