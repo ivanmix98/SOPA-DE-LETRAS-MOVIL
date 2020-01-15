@@ -192,10 +192,11 @@ public class Joc extends AppCompatActivity implements View.OnClickListener {
                 casilla.setLayoutParams(casillaParams);
                 casilla.setGravity(View.TEXT_ALIGNMENT_CENTER);
                 casilla.setBackground(sd);
-
+                casilla.setId(100+z);
 
                 if (arrayTablero[i][j] != null) {
                     casilla.setText(arrayTablero[i][j].toString());
+                    System.out.println(casilla.getId());
                     //System.out.println(casilla.getText().toString());
                 }
                 div.addView(casilla);
@@ -211,8 +212,7 @@ public class Joc extends AppCompatActivity implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         LinearLayout casilla = findViewById(view.getId());
-
-
+        TextView casillaText = findViewById(100+(int)casilla.getId());
 
         //para saber si la casilla está seleccionada o no
         int color = Color.TRANSPARENT;
@@ -228,9 +228,11 @@ public class Joc extends AppCompatActivity implements View.OnClickListener {
         if(color == Color.TRANSPARENT){
             casilla.setBackgroundColor(Color.RED);
             System.out.println(view.getId());
-
+            System.out.println(casillaText.getText().toString());
         }
 
 
     }
+
+    
 }
