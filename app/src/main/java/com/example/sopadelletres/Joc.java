@@ -187,12 +187,11 @@ public class Joc extends AppCompatActivity implements View.OnClickListener {
                 TextView casilla = new TextView(this);
 
 
-
                 casilla.setPadding(10, 10, 10, 10);
                 casilla.setLayoutParams(casillaParams);
                 casilla.setGravity(View.TEXT_ALIGNMENT_CENTER);
                 casilla.setBackground(sd);
-                casilla.setId(100+z);
+                casilla.setId(100 + z);
 
                 if (arrayTablero[i][j] != null) {
                     casilla.setText(arrayTablero[i][j].toString());
@@ -208,31 +207,58 @@ public class Joc extends AppCompatActivity implements View.OnClickListener {
         }
     }
 
+    private String Resposta = "";
+
+    public void añadirLetra(TextView tv) {
+        String letra = String.valueOf(((TextView) tv).getText());
+        Resposta += letra;
+        System.out.println(Resposta);
+    }
+
+    public void quitarLetra(TextView tv) {
+        Resposta = Resposta.substring(0, Resposta.length() - 1);
+        System.out.println(Resposta);
+    }
+
+    public void verificarPalabra() {
+
+        for (int w = 0; w < palabras.length; w++) {
+            if (palabras[w].equals(Resposta)) {
+                System.out.println("PALABRA ENCONTRADA: " + Resposta);
+
+                Resposta = "";
+                break;
+            }
+        }
+    }
 
     @Override
     public void onClick(View view) {
         LinearLayout casilla = findViewById(view.getId());
-        TextView casillaText = findViewById(100+(int)casilla.getId());
+        TextView casillaText = findViewById(100 + (int) casilla.getId());
 
         //para saber si la casilla está seleccionada o no
         int color = Color.TRANSPARENT;
         Drawable background = casilla.getBackground();
-        if (background instanceof ColorDrawable){
+        if (background instanceof ColorDrawable) {
             color = ((ColorDrawable) background).getColor();
         }
 
 
-        if(color != Color.TRANSPARENT){
+        if (color != Color.TRANSPARENT) {
             casilla.setBackgroundColor(Color.TRANSPARENT);
+            quitarLetra(casillaText);
         }
-        if(color == Color.TRANSPARENT){
+        if (color == Color.TRANSPARENT) {
             casilla.setBackgroundColor(Color.RED);
-            System.out.println(view.getId());
-            System.out.println(casillaText.getText().toString());
+            // System.out.println(view.getId());
+            //System.out.println(casillaText.getText().toString());
+            añadirLetra(casillaText);
+            verificarPalabra();
         }
 
 
     }
 
-    
+
 }
